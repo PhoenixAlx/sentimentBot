@@ -37,7 +37,7 @@ resultSent <- function(cadena) {
   trust<-paste("Trust: ",vectorS$trust);
   negative<-paste("Negative: ",vectorS$negative);
   positive<-paste("Positive: ",vectorS$positive);
-  totalResult<-paste(yourText,negative,trust,surprise,sadness,joy,fear,disgust,anticipation,anger,sep="\n")
+  totalResult<-paste(yourText,positive,negative,trust,surprise,sadness,joy,fear,disgust,anticipation,anger,sep="\n")
   return(totalResult)
 }
 """
