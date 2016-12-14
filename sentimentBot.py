@@ -26,6 +26,7 @@ ro.r(codigo_r_library);
 codigo_r = """
 resultSent <- function(cadena) {
   vectorS<-get_nrc_sentiment(cadena);
+  yourText<-paste("Your text: ",cadena);
   anger<-paste("Anger: ",vectorS$anger);
   anticipation<-paste("Anticipation: ",vectorS$anticipation);
   disgust<-paste("Disgust: ",vectorS$disgust);
@@ -36,7 +37,7 @@ resultSent <- function(cadena) {
   trust<-paste("Trust: ",vectorS$trust);
   negative<-paste("Negative: ",vectorS$negative);
   positive<-paste("Positive: ",vectorS$positive);
-  totalResult<-paste(positive,negative,trust,surprise,sadness,joy,fear,disgust,anticipation,anger,sep="\n")
+  totalResult<-paste(yourText,negative,trust,surprise,sadness,joy,fear,disgust,anticipation,anger,sep="\n")
   return(totalResult)
 }
 """
