@@ -37,7 +37,13 @@ resultSent <- function(cadena) {
   trust<-paste("Trust: ",vectorS$trust);
   negative<-paste("Negative: ",vectorS$negative);
   positive<-paste("Positive: ",vectorS$positive);
-  totalResult<-paste(yourText,positive,negative,trust,surprise,sadness,joy,fear,disgust,anticipation,anger,sep="\n")
+  totalSum<-rowSums(vectorS)
+  probi<-vectorS/totalSum
+  logpi<-log(probi)
+  Hlocal<- (-probi*logpi)
+  resultH <- rowSums(Hlocal/log(length(vectorS)),na.rm = TRUE);
+  diversitySent<-paste("Diversity sentiment[0-1]: ",resultH);
+  totalResult<-paste(yourText,positive,negative,trust,surprise,sadness,joy,fear,disgust,anticipation,anger,diversitySent,sep="\n")
   return(totalResult)
 }
 """
